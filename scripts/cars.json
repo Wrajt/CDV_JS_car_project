@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Lola",
+    "brand": "Chevrolet",
+    "model": "Bel Air",
+    "image": "assets/lola.png",
+    "price": "83 900$",
+    "year": 1957,
+    "power": "162 kw",
+    "mileage": "113 300"
+  },{
+  "name": "Lighting McQueen",
+  "brand": "Ferrari",
+  "model": "599 GTB Fiorano",
+  "image": "assets/mcqueen.png",
+  "price": "129 500$",
+  "year": 1977,
+  "power": "456 kW",
+  "mileage": "36 540 km"
+},
+  {
+    "name": "Tow Mater",
+    "brand": "Haulital",
+    "model": "Hook'em",
+    "image": "assets/towmater.png",
+    "price": "5 000$",
+    "year": 1957,
+    "power": "unknown",
+    "mileage": "12 000 km"
+  }
+]
