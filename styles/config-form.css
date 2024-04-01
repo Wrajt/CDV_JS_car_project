@@ -1,0 +1,23 @@
+.selected-car {
+    width: 50%;
+}
+
+.selected-car img {
+    max-width: 100%; /* Make the image width 100% of its container */
+  height: auto; /* Maintain aspect ratio */
+  overflow: hidden;
+}
+
+.settings-container {
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontally center the items */
+    padding: 0 100px;
+    margin-top: 100px;
+    background-color: #eb793d;
+}
+.settings {
+  flex: 1;
+  order: 2;
+    margin-left: 50px;
+    line-height: 22px;
+}

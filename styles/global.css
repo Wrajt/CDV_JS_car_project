@@ -1,121 +1,82 @@
-*{
-    margin: 0;
-    font-family: magneto, sans-serif;
-    font-style: normal;
-    font-weight: 700;
+* {
+  margin: 0;
+  font-family: magneto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
-body{
-    background-color: #eb793d;
+body {
+  background-color: #eb793d;
 }
 /*HEADER STYLING*/
 .header-banner {
-    background-size: cover;
-    width: 100%;
-    height:auto;
-}
-/*CARDS STYLING*/
-
-.cars-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Horizontally center the items */
-    padding: 0 100px;
-    margin-top: 100px;
-    background-color: #eb793d;
+  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
-.car {
-    max-width: 400px; /* Set maximum width to prevent them from becoming too large */
-    min-height: 500px; /* Set minimum height to prevent them from becoming too small */
-    margin: 10px; /* Add some margin for spacing */
-    text-align: center; /* Center text/image horizontally */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-    box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
-    transition: transform 0.1s ease-in-out, box-shadow 0.1s;
-    background: linear-gradient(to bottom right, #d93b3a, transparent );
-    z-index: 1; /* Ensure it's above the image */
-    border-radius: 5px;
-}
-.car:hover {
-    transform: translateY(-0.5rem) scale(1.0125);
-    box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
-}
-.car img {
-    max-width: 100%; /* Make the image width 100% of its container */
-    height: auto; /* Maintain aspect ratio */
-    overflow: hidden;
-}
-
-.car-details{
-    list-style-type: none;
-    display: block;
-    padding: 1em 0.5em;
-
-}
 @media (max-width: 600px) {
-    .car {
-        width: calc(50% - 20px); /* Set width to 50% minus margin for smaller screens */
-    }
+  .car {
+    width: calc(
+      50% - 20px
+    ); /* Set width to 50% minus margin for smaller screens */
+  }
 }
 @media (max-width: 230px) {
-    .car {
-        width: 20%;
-    }
+  .car {
+    width: 20%;
+  }
 }
 .button {
-    display: inline-block; /* Change display to inline-block */
-    padding: 1em 0.5em;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    color: #2b2622;
-    font-size: 0.8125em;
-    text-align: center;
-    text-decoration: none;
-    background-color: #c5e4e6;
-    border-radius: 3em;
-    transition: box-shadow 200ms;
+  display: inline-block; /* Change display to inline-block */
+  padding: 1em 0.5em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #2b2622;
+  font-size: 0.8125em;
+  text-align: center;
+  text-decoration: none;
+  background-color: #c5e4e6;
+  border-radius: 3em;
+  transition: box-shadow 200ms;
+    min-width: 100px;
 }
-
 
 .button:hover {
-    box-shadow: inset 0 0 1rem 2rem rgba(0,0,0,0.15);
+  box-shadow: inset 0 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
-
-
-
 
 /*NAVBAR STYLING*/
 .navbar {
-    background-color: #eb793d; /* Set background color of the navbar */
-    color: #2b2622; /* Set text color of the navbar */
-    position: fixed; /* Set navbar to fixed position */
-    width: 100%; /* Set navbar width to fill the screen */
-    top: 0; /* Set navbar to stick to the top */
-    z-index: 1000; /* Set z-index to ensure navbar stays on top of other content */
+  background-color: #eb793d; /* Set background color of the navbar */
+  color: #2b2622; /* Set text color of the navbar */
+  position: fixed; /* Set navbar to fixed position */
+  width: 100%; /* Set navbar width to fill the screen */
+  top: 0; /* Set navbar to stick to the top */
+  z-index: 1000; /* Set z-index to ensure navbar stays on top of other content */
 }
 
 .menu {
-    list-style-type: none; /* Remove default list style */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Use flexbox to display items horizontally */
+  list-style-type: none; /* Remove default list style */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox to display items horizontally */
 }
-.logo{
-    height: 60px;
+.logo {
+  height: 60px;
 }
 .menu li {
-    padding: 30px 20px; /* Add padding to each menu item */
+  padding: 30px 20px; /* Add padding to each menu item */
 }
 
 .menu li a {
-    color: #2b2622; /* Set text color of menu items */
-    text-decoration: none; /* Remove underline from links */
+  color: #2b2622; /* Set text color of menu items */
+  text-decoration: none; /* Remove underline from links */
 }
 
 .menu li:hover {
-    background-color: #d93b3a; /* Change background color on hover */
+  background-color: #d93b3a; /* Change background color on hover */
 }
 
 .menu li.contact {
-    margin-left: auto; /* Align the Contact menu item to the left */
+  margin-left: auto; /* Align the Contact menu item to the left */
 }
