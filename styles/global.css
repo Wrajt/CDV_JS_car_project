@@ -9,7 +9,6 @@ body{
 }
 /*HEADER STYLING*/
 .header-banner {
-    background-image: url('/assets/banner_cars_auta.png');
     background-size: cover;
     width: 100%;
     height:auto;

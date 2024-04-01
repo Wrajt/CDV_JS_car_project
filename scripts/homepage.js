@@ -1,111 +1,4 @@
-const cars = [
-    {
-        "name": "Ramone",
-        "brand": "Chevrolet",
-        "model": "Impala",
-        "image": "assets/ramone1.png",
-        "price": "57 950$",
-        "year": 1959,
-        "power": "185kw",
-        "mileage": "85 171 km"
-    },
-
-    {
-        "name": "Lighting McQueen",
-        "brand": "Ferrari",
-        "model": "599 GTB Fiorano",
-        "image": "assets/mcqueen.png",
-        "price": "129 500$",
-        "year": 1977,
-        "power": "456 kW",
-        "mileage": "36 540 km"
-    },
-    {
-        "name": "Tow Mater",
-        "brand": "Haulital",
-        "model": "Hook'em",
-        "image": "assets/towmater.png",
-        "price": "5 000$",
-        "year": 1957,
-        "power": "unknown",
-        "mileage": "12 000 km"
-    },
-    {
-        "name": "Sally Carrera",
-        "brand": "Porsche",
-        "model": "Carrera (996)",
-        "image": "assets/sally.png",
-        "price": "39 000$",
-        "year": 2002,
-        "power": "320kw",
-        "mileage": "99 000 km"
-    },
-    {
-        "name": "Snot Rod",
-        "brand": "Dodge",
-        "model": "Charger",
-        "image": "assets/snotrod.png",
-        "price": "101 000$",
-        "year": 1969,
-        "power": "368kw",
-        "mileage": "55 726 km"
-    },
-    {
-        "name": "Chick Hicks",
-        "brand": "Shyster",
-        "model": "Cremlin",
-        "image": "assets/chickhicks.png",
-        "price": "113 000$",
-        "year": 1979,
-        "power": "400kw",
-        "mileage": "28 726 km"
-    },
-    {
-        "name": "Jackson Storm",
-        "brand": "Hudson",
-        "model": "Hornet",
-        "image": "assets/jacksonstorm.png",
-        "price": "83 900",
-        "year": 1957,
-        "power": "162kw",
-        "mileage": "113 300 km"
-    },
-    {
-        "name": "Max Schnell",
-        "brand": "Mercedes-Benz",
-        "model": "AMG C-Class (W204) DTM",
-        "image": "assets/maxschnell.png",
-        "price": "120 000$",
-        "year": 2009,
-        "power": "470kw",
-        "mileage": "90 000 km"
-    },
-    {
-        "name": "Lewis Hamilton",
-        "brand": "McLaren",
-        "model": "MP4 12C",
-        "image": "assets/lewishamilton.png",
-        "price": "180 000$",
-        "year": 2009,
-        "power": "575kw",
-        "mileage": "20 000 km"
-    },
-    {
-        "name": "Holley Shiftwell",
-        "brand": "McLaren",
-        "model": "MP4 12C",
-        "image": "assets/holley.png",
-        "price": "180 000$",
-        "year": 2008,
-        "power": "275kw",
-        "mileage": "20 000 km"
-    }
-]
-
-
-
-
-
+import cars from './cars.js';
 
 // Function to create a car element
 function createCarElement(car) {
@@ -139,9 +32,10 @@ function createCarElement(car) {
             detailList.appendChild(listItem);
         }
     }
+
     const configureLink = document.createElement("a");
     configureLink.classList.add("button");
-    configureLink.href = "#0";
+    configureLink.href = "#";
     const span = document.createElement("span");
     span.textContent = "Configure model";
     configureLink.appendChild(span);
@@ -149,18 +43,96 @@ function createCarElement(car) {
 
     return carDiv;
 }
+// Function to display details of the selected car and additional options
+// Function to display details of the selected car
+function displaySelectedCar(car) {
+    // Create a new div for displaying selected car details
+    const selectedCarDiv = document.createElement("div");
+    selectedCarDiv.classList.add("selected-car");
+
+    // Create elements to display car details
+    const carName = document.createElement("h1");
+    carName.textContent = car.name;
+
+    const carModel = document.createElement("h2");
+    carModel.textContent = `${car.brand} ${car.model}`;
+
+    const carImage = document.createElement("img");
+    carImage.src = car.image;
+    carImage.classList.add("car-image");
+
+    const carDetailList = document.createElement("ul");
+    carDetailList.classList.add("car-details");
+
+    // Add car details to the list
+    for (const property in car) {
+        if (car.hasOwnProperty(property) && property !== 'name' && property !== 'brand' && property !== 'model' && property !== 'image') {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${property.charAt(0).toUpperCase() + property.slice(1)}: ${car[property]}`;
+            carDetailList.appendChild(listItem);
+        }
+    }
+
+    const backLink = document.createElement("a");
+    backLink.classList.add("back");
+    backLink.href = "homepage.html";
+    const span = document.createElement("span");
+    span.textContent = "Powrót";
+    backLink.appendChild(span);
 
 
+    // Append elements to the selected car div
+    selectedCarDiv.appendChild(carName);
+    selectedCarDiv.appendChild(carModel);
+    selectedCarDiv.appendChild(carImage);
+    selectedCarDiv.appendChild(carDetailList);
+    selectedCarDiv.appendChild(backLink);
+
+    // Append the selected car div to the document body
+    document.body.appendChild(selectedCarDiv);
+}
+
+// Function to handle button click event
+function handleConfigureButtonClick(event) {
+    event.preventDefault();
+
+    const carDiv = event.target.closest('.car');
+
+    // Hide the cars container
+    const carsContainer = document.querySelector(".cars-container");
+    carsContainer.style.display = "none";
+
+    // Get the selected car index
+    const selectedCarIndex = parseInt(carDiv.dataset.index);
+    const selectedCar = cars[selectedCarIndex];
+
+    // Display the selected car details
+    displaySelectedCar(selectedCar);
+}
 
 
 // Function to add car elements to the HTML
 function addCarsToHTML(carsArray) {
     const carContainer = document.querySelector(".cars-container");
-    carsArray.forEach(car => {
+    carsArray.forEach((car, index) => {
         const carElement = createCarElement(car);
+        carElement.dataset.index = index; // Add index as data attribute
         carContainer.appendChild(carElement);
     });
 }
 
-// Call the function to add cars to HTML
-addCarsToHTML(cars);
+// Add event listeners to all buttons
+document.addEventListener("DOMContentLoaded", function() {
+    addCarsToHTML(cars);
+
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach(button => {
+        button.addEventListener('click', handleConfigureButtonClick);
+    });
+});
+
+
+
+
+
+
