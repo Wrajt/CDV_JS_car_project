@@ -78,4 +78,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//SEARCH FUNCTION
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', function() {
+  const searchText = this.value;
+  searchCars(searchText);
+});
 
+function searchCars(searchText) {
+  const cars = document.querySelectorAll('.car'); // Zakładając, że elementy samochodów mają klasę 'car'
+
+  cars.forEach(car => {
+    const name = car.querySelector('h2').textContent.toLowerCase(); // Zmieniono selektor na 'h2'
+
+    if (name.includes(searchText.toLowerCase())) {
+      car.style.display = 'block';
+    } else {
+      car.style.display = 'none';
+    }
+  });
+}
