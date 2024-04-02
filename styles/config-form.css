@@ -9,6 +9,7 @@
 }
 
 .settings-container {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Horizontally center the items */
     padding: 0 100px;

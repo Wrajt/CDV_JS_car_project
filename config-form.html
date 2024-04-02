@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/config-form.css" />
+    <script type="module" src="scripts/config-form.js" defer></script>
+</head>
+<body>
+<div class="settings-container">
+    <div class="selected-car">
+        <h1></h1>
+        <h2></h2>
+        <img src="" alt="" class="car-image"/>
+    </div>
+<div class="settings">
+    <h1>Configuration form</h1>
+    <br>
+    <form id="car-form" novalidate>
+        <h2>Personal details:</h2>
+        <label for="name">First name:</label>
+        <input type="text" id="name" name="name" required/><br />
+        <label for="surname">Last name:</label>
+        <input type="text" id="surname" name="surname" required/><br />
+
+        <h2>Upgrades:</h2>
+        <input type="checkbox" id="leather" name="leather" value="3000" >
+        <label for="leather">Leather: 3000$</label><br>
+        <input type="checkbox" id="windows" name="windows" value="5000">
+        <label for="windows">Tinted windows: 5000$</label><br>
+        <input type="checkbox" id="lights" name="lights" value="1500">
+        <label for="lights">LED Lights: 1500$</label><br>
+
+        <h2><label for="selectDate">Pickup date:</label></h2>
+        <select name="selectDate" id="selectDate">
+            <option value="7">7 dni</option>
+            <option value="14">14 dni</option>
+            <option value="21">21 dni</option>
+        </select>
+        <div id="dates">Your pickup date:</div>
+
+        <h2>Payment method:</h2>
+        <input type="radio" id="leasing" name="payment" value="leasing" required/>
+        <label for="leasing">LEASING</label><br />
+        <input type="radio" id="cash" name="payment" value="cash" />
+        <label for="cash">CASH</label><br />
+
+        <br />
+        <input type="submit" value="BUY" class="button" />
+        <div id="error-msg" style="color: red; display: none;">Fill out all the necessary fields.</div>
+
+    </form>
+    <div class="total">Your current total: </div>
+</div>
+</div>
+</body>
+</html>
