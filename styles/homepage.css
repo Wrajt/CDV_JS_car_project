@@ -18,8 +18,8 @@
     box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
     transition: transform 0.1s ease-in-out, box-shadow 0.1s;
     background: linear-gradient(to bottom right, #d93b3a, transparent );
-    z-index: 1; /* Ensure it's above the image */
     border-radius: 5px;
+    position: relative;
 }
 .car:hover {
     transform: translateY(-0.5rem) scale(1.0125);
@@ -34,9 +34,18 @@
     list-style-type: none;
     display: block;
     padding: 1em 0.5em;
-
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 20px;
 }
-
+.config{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 #searchInput {
     display:flex;
     justify-content: center;

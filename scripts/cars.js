@@ -74,7 +74,7 @@ const cars = [
     "brand": "Mercedes-Benz",
     "model": "AMG C-Class (W204) DTM",
     "image": "assets/maxschnell.png",
-    "price": 120000,
+    "price $ ": 120000,
     "year": 2009,
     "power": "470kw",
     "mileage": "90 000 km"

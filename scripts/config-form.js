@@ -5,6 +5,7 @@ const selectedCar = cars[selectedCarIndex];
 const selectedCarPrice = selectedCar.price;
 const total = document.querySelector(".total");
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const errorMSG = document.getElementById("error-msg");
 
 function displaySelectedCar(car) {
   //Display car details
@@ -58,7 +59,7 @@ document
     let pickup = document.getElementById("selectDate").value;
 
     if (name === "" || surname === "" || pickup === "") {
-      document.getElementById("error-msg").style.display = "block";
+      errorMSG.style.display = "block";
       event.preventDefault();
     }
   });
@@ -107,3 +108,11 @@ function calculatePrice(selectedCarPrice) {
   });
 }
 calculatePrice(selectedCarPrice);
+
+function submitOrder(){
+  if(errorMSG.style.display === "none"){
+    window.location.href = "confirmation-page.html";
+  }else{
+    alert("Please fill in the form correctly");
+}}
+document.querySelector("#submit").addEventListener("click", submitOrder);

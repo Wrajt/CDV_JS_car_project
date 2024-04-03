@@ -62,16 +62,16 @@ function addCarsToHTML(carsArray) {
 document.addEventListener("DOMContentLoaded", function () {
   addCarsToHTML(cars);
 
- // Function to handle button click event
-  function handleConfigureButtonClick(event){
-    event.preventDefault()
+  // Function to handle button click event
+  function handleConfigureButtonClick(event) {
+    event.preventDefault();
     const carDiv = event.target.closest(".car");
     // Get the selected car index
-    const selectedCarIndex = carDiv.dataset.index
-    localStorage.setItem("index", selectedCarIndex)
-    window.location.href = "config-form.html"
+    const selectedCarIndex = carDiv.dataset.index;
+    localStorage.setItem("index", selectedCarIndex);
+    window.location.href = "config-form.html";
   }
-// Add event listeners to all buttons
+  // Add event listeners to all buttons
   const buttons = document.querySelectorAll(".config");
   buttons.forEach((button) => {
     button.addEventListener("click", handleConfigureButtonClick);
@@ -79,22 +79,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //SEARCH FUNCTION
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', function() {
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", function () {
   const searchText = this.value;
   searchCars(searchText);
 });
 
 function searchCars(searchText) {
-  const cars = document.querySelectorAll('.car'); // Zakładając, że elementy samochodów mają klasę 'car'
+  const cars = document.querySelectorAll(".car"); // Zakładając, że elementy samochodów mają klasę 'car'
 
-  cars.forEach(car => {
-    const name = car.querySelector('h2').textContent.toLowerCase(); // Zmieniono selektor na 'h2'
+  cars.forEach((car) => {
+    const name = car.querySelector("h2").textContent.toLowerCase(); // Zmieniono selektor na 'h2'
 
     if (name.includes(searchText.toLowerCase())) {
-      car.style.display = 'block';
+      car.style.display = "block";
     } else {
-      car.style.display = 'none';
+      car.style.display = "none";
     }
   });
 }
