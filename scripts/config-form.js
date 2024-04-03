@@ -45,24 +45,12 @@ function displaySelectedCar(car) {
   selectedCarContainer.appendChild(carDetailList);
   selectedCarContainer.appendChild(backLink);
 }
+
+
 //Display selected car on window load
 window.onload = function () {
   displaySelectedCar(selectedCar);
 };
-
-//ERROR MESSAGE FOR CAR FORM
-document
-  .getElementById("car-form")
-  .addEventListener("submit", function (event) {
-    let name = document.getElementById("name").value;
-    let surname = document.getElementById("surname").value;
-    let pickup = document.getElementById("selectDate").value;
-
-    if (name === "" || surname === "" || pickup === "") {
-      errorMSG.style.display = "block";
-      event.preventDefault();
-    }
-  });
 
 //FUNCTION FOR PICKUP DATE
 function generateDate() {
@@ -75,6 +63,7 @@ function generateDate() {
   let datesContainer = document.getElementById("dates");
   datesContainer.innerHTML = "<p>Your pickup date: " + formattedDate + "</p>";
 }
+generateDate();
 document.getElementById("selectDate").addEventListener("change", generateDate);
 
 //ADDING CHECKED ATTRIBUTE TO CHECKBOXES
@@ -104,15 +93,54 @@ function calculatePrice(selectedCarPrice) {
         }
       });
       total.textContent = `Your current total: ${selectedCarPrice + sum}$`;
+      let totalCarPrice = selectedCarPrice + sum;
+        localStorage.setItem("total", totalCarPrice);
     });
   });
 }
 calculatePrice(selectedCarPrice);
 
-function submitOrder(){
-  if(errorMSG.style.display === "none"){
-    window.location.href = "confirmation-page.html";
-  }else{
-    alert("Please fill in the form correctly");
-}}
-document.querySelector("#submit").addEventListener("click", submitOrder);
+//FORM VALIDATION
+document
+  .getElementById("car-form")
+  .addEventListener("submit", function (event) {
+    let name = document.getElementById("name").value;
+    let surname = document.getElementById("surname").value;
+    let pickup = document.getElementById("selectDate").value;
+
+    if (name && surname && pickup) {
+      window.location.href = "confirmation-page.html";
+      event.preventDefault();
+    } else {
+      errorMSG.style.display = "block";
+      event.preventDefault();
+    }
+  });
+
+//SAVING DATA TO LOCAL STORAGE
+document.addEventListener("DOMContentLoaded", function() {
+  let formData = JSON.parse(localStorage.getItem("formData"));
+  if (formData) {
+    document.getElementById("name").value = formData.name || "";
+    document.getElementById("surname").value = formData.surname || "";
+    document.getElementById("leasing").checked = formData.radio === "leasing";
+    document.getElementById("cash").checked = formData.radio === "cash";
+    document.getElementById("selectDate").value = formData.select || "";
+  }
+});
+
+// Zapisz dane formularza do localStorage po zmianie
+document.getElementById("car-form").addEventListener("change", function() {
+  let formData = {
+    name: document.getElementById("name").value,
+    surname: document.getElementById("surname").value,
+    radio: document.querySelector('input[name="payment"]:checked') ? document.querySelector('input[name="payment"]:checked').value : null,
+    select: document.getElementById("selectDate").value
+  };
+
+  // Usuń puste wartości z obiektu formData
+  Object.keys(formData).forEach(key => formData[key] === undefined && delete formData[key]);
+
+  localStorage.setItem("formData", JSON.stringify(formData));
+});
+
