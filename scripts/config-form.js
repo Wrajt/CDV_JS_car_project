@@ -37,7 +37,7 @@ function displaySelectedCar(car) {
   //Add back button
   const backLink = document.createElement("a");
   backLink.classList.add("button", "back");
-  backLink.href = "homepage.html";
+  backLink.href = "index.html";
   const span = document.createElement("span");
   span.textContent = " ← Back";
   backLink.appendChild(span);
