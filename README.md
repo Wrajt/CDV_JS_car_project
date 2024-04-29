@@ -13,3 +13,4 @@ If you want to just see the end product visit [this page](https://wrajt.github.i
 - [Official color palette for Cars](https://www.color-hex.com/color-palette/1042170)
 - [Cars Wiki](https://pixarcars.fandom.com/wiki/Main_Page)
 - [This PNG Website](https://www.pngwing.com)
+- [CSS Ideas from here](https://getcssscan.com)
