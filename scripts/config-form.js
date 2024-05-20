@@ -84,6 +84,7 @@ getCarPrice(selectedCarPrice);
 
 //CALCULATING TOTAL PRICE
 function calculatePrice(selectedCarPrice) {
+  localStorage.setItem("total", selectedCarPrice);
   checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener("change", function () {
       let sum = 0;
