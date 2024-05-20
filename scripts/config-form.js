@@ -77,10 +77,10 @@ checkboxes.forEach(function (checkbox) {
   });
 });
 //DISPLAYING CURRENT PRICE
-function justCarPrice(selectedCarPrice) {
+function getCarPrice(selectedCarPrice) {
   total.textContent = `Your current total: ${selectedCarPrice}$`;
 }
-justCarPrice(selectedCarPrice);
+getCarPrice(selectedCarPrice);
 
 //CALCULATING TOTAL PRICE
 function calculatePrice(selectedCarPrice) {
